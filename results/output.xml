@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.14.3 on win32)" generated="2026-03-09T13:47:57.296368" rpa="false" schemaversion="5">
-<suite id="s1" name="treino API no robot" source="C:\Users\fcg364\Desktop\treino API no robot">
-<suite id="s1-s1" name="Treino" source="C:\Users\fcg364\Desktop\treino API no robot\treino.robot">
-<test id="s1-s1-t1" name="TC03 - Realizar pesquisa de produto" line="33">
-<kw name="Pegar produto por pesquisa car" source_name="Pegar produto por pesquisa ${SEARCH}">
+<robot generator="Robot 7.0 (Python 3.14.3 on win32)" generated="2026-03-13T13:24:01.404400" rpa="false" schemaversion="5">
+<suite id="s1" name="Treino-Post" source="C:\Users\fcg364\Desktop\treino API no robot\treino-post.robot">
+<test id="s1-t1" name="TC01: Adicionando produto" line="20">
+<kw name="Adicionar novo produto">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-03-09T13:47:57.424006" level="INFO">&amp;{headers} = { Content-type=application/json }</msg>
-<var>&amp;{headers}</var>
+<msg time="2026-03-13T13:24:01.500402" level="INFO">&amp;{header} = { Content-type=application/json }</msg>
+<var>&amp;{header}</var>
 <arg>Content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-03-09T13:47:57.423699" elapsed="0.000437"/>
+<status status="PASS" start="2026-03-13T13:24:01.500185" elapsed="0.000241"/>
 </kw>
-<kw name="Replace String" owner="String">
-<msg time="2026-03-09T13:47:57.424633" level="INFO">${GET_SEARCh_PRODUCT} = products/search?q=car</msg>
-<var>${GET_SEARCh_PRODUCT}</var>
-<arg>${GET_SEARCh_PRODUCT}</arg>
-<arg>phone</arg>
-<arg>${SEARCH}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2026-03-09T13:47:57.424301" elapsed="0.000439"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-13T13:24:01.500682" level="INFO">&amp;{body} = { tittle=iphone11 | description=la Cobra de titanio }</msg>
+<var>&amp;{body}</var>
+<arg>tittle=${tittle}</arg>
+<arg>description=${description}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-13T13:24:01.500515" elapsed="0.000182"/>
 </kw>
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2026-03-09T13:47:57.862501" level="INFO">GET Request : url=https://dummyjson.com/products/search?q=car 
- path_url=/products/search?q=car 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-type': 'application/json'} 
- body=None 
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2026-03-13T13:24:01.965486" level="INFO">POST Request : url=https://dummyjson.com/products/add 
+ path_url=/products/add 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-type': 'application/json', 'Content-Length': '60'} 
+ body=b'{"tittle": "iphone11", "description": "la Cobra de titanio"}' 
  </msg>
-<msg time="2026-03-09T13:47:57.863303" level="INFO">GET Response : url=https://dummyjson.com/products/search?q=car 
- status=200, reason=OK 
- headers={'Date': 'Mon, 09 Mar 2026 16:47:57 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-origin': '*', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=zAMmQ4JqIqsW3TMW53UUbWzKGUG3HzyMc9QPdRZ1yIBOvOLMTCT%2FfPAtYUvLsNJKWAYB%2BUJqnPIjxguoBJ8SZATL5F8ojY5E4T%2B8Mfk%3D"}]}', 'etag': 'W/"1188-3m5HdrbTA2m0ghATuhsBwgJtRJc"', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'vary': 'Accept-Encoding', 'x-content-type-options': 'nosniff', 'x-dns-prefetch-control': 'off', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '99', 'x-ratelimit-reset': '1773074880', 'x-xss-protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'zstd', 'Server': 'cloudflare', 'CF-RAY': '9d9b908178fd02ef-GRU'} 
- body={"products":[{"id":1,"title":"Essence Mascara Lash Princess","description":"The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.","category":"beauty","price":9.99,"discountPercentage":10.48,"rating":2.56,"stock":99,"tags":["beauty","mascara"],"brand":"Essence","sku":"BEA-ESS-ESS-001","weight":4,"dimensions":{"width":15.14,"height":13.08,"depth":22.99},"warrantyInformation":"1 week warranty","shippingInformation":"Ships in 3-5 business days","availabilityStatus":"In Stock","reviews":[{"rating":3,"comment":"Would not recommend!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"},{"rating":4,"comment":"Very satisfied!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Lucas Gordon","reviewerEmail":"lucas.gordon@x.dummyjson.com"},{"rating":5,"comment":"Highly impressed!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":48,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"5784719087687","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"},{"id":52,"title":"Carbon Steel Wok","description":"The Carbon Steel Wok is a versatile cooking pan suitable for stir-frying, sautéing, and deep frying. Its sturdy construction ensures even heat distribution for delicious meals.","category":"kitchen-accessories","price":29.99,"discountPercentage":6.53,"rating":4.05,"stock":40,"tags":["cookware","woks"],"sku":"KIT-BRD-CAR-052","weight":2,"dimensions":{"width":27.69,"height":7.54,"depth":10.11},"warrantyInformation":"2 year warranty","shippingInformation":"Ships in 1-2 business days","availabilityStatus":"In Stock","reviews":[{"rating":4,"comment":"Excellent quality!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Nolan Bryant","reviewerEmail":"nolan.bryant@x.dummyjson.com"},{"rating":4,"comment":"Highly impressed!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Luna Perez","reviewerEmail":"luna.perez@x.dummyjson.com"},{"rating":5,"comment":"Very satisfied!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Noah Lewis","reviewerEmail":"noah.lewis@x.dummyjson.com"}],"returnPolicy":"7 days return policy","minimumOrderQuantity":9,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"1810862118199","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp"},{"id":65,"title":"Lunch Box","description":"The Lunch Box is a convenient and portable container for packing and carrying your meals. With compartments for different foods, it's perfect for on-the-go dining.","category":"kitchen-accessories","price":12.99,"discountPercentage":10.34,"rating":4.93,"stock":94,"tags":["kitchen tools","storage"],"sku":"KIT-BRD-LUN-065","weight":9,"dimensions":{"width":12.45,"height":19.08,"depth":8.24},"warrantyInformation":"5 year warranty","shippingInformation":"Ships in 1-2 business days","availabilityStatus":"In Stock","reviews":[{"rating":5,"comment":"Very pleased!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Jace Smith","reviewerEmail":"jace.smith@x.dummyjson.com"},{"rating":5,"comment":"Very happy with my purchase!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Zoe Bennett","reviewerEmail":"zoe.bennett@x.dummyjson.com"},{"rating":2,"comment":"Poor quality!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Michael Johnson","reviewerEmail":"michael.johnson@x.dummyjson.com"}],"returnPolicy":"30 days return policy","minimumOrderQuantity":39,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"3287134465440","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp"}],"total":3,"skip":0,"limit":3} 
+<msg time="2026-03-13T13:24:01.965825" level="INFO">POST Response : url=https://dummyjson.com/products/add 
+ status=201, reason=Created 
+ headers={'Date': 'Fri, 13 Mar 2026 16:24:01 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '46', 'Connection': 'keep-alive', 'access-control-allow-origin': '*', 'etag': 'W/"2e-8zkFRMCkLmDROuB35GP0qHkH2Sc"', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'vary': 'Accept-Encoding', 'x-content-type-options': 'nosniff', 'x-dns-prefetch-control': 'off', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '99', 'x-ratelimit-reset': '1773419046', 'x-xss-protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=9NkvEbuvTTZR3CklZiwi01rtD36tjfNYWHHd%2FPbzPtRyKMBCX9taFLqMNx7wEEZ2jxuUJsIs6v5jUrSYafyfmneXQ34H1VhmBvVfTIQ%3D"}]}', 'Server': 'cloudflare', 'CF-RAY': '9dbc62f31f656288-GRU'} 
+ body={"id":195,"description":"la Cobra de titanio"} 
  </msg>
-<arg>url=${HOST}/${GET_SEARCh_PRODUCT}</arg>
-<arg>headers=&amp;{headers}</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2026-03-09T13:47:57.424860" elapsed="0.439084"/>
+<arg>url=${HOST}/${ADD_PRODUCT}</arg>
+<arg>headers=&amp;{header}</arg>
+<arg>json=&amp;{body}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2026-03-13T13:24:01.500759" elapsed="0.465243"/>
 </kw>
-<status status="PASS" start="2026-03-09T13:47:57.423193" elapsed="0.441146"/>
+<arg>iphone11</arg>
+<arg>la Cobra de titanio</arg>
+<status status="PASS" start="2026-03-13T13:24:01.499603" elapsed="0.466606"/>
 </kw>
-<status status="PASS" start="2026-03-09T13:47:57.420820" elapsed="0.445307"/>
+<status status="PASS" start="2026-03-13T13:24:01.498970" elapsed="0.468858"/>
 </test>
-<status status="PASS" start="2026-03-09T13:47:57.338858" elapsed="0.534628"/>
-</suite>
-<status status="PASS" start="2026-03-09T13:47:57.301407" elapsed="0.579002"/>
+<status status="PASS" start="2026-03-13T13:24:01.405956" elapsed="0.565716"/>
 </suite>
 <statistics>
 <total>
@@ -51,8 +50,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="treino API no robot">treino API no robot</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Treino">treino API no robot.Treino</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Treino-Post">Treino-Post</stat>
 </suite>
 </statistics>
 <errors>

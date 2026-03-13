@@ -29,7 +29,7 @@ Pegar produto por pesquisa ${SEARCH}
 tC01 - Realizar busca de todos os produtos
     Pegar todos os produtos
 TC02 - Realizar busca de um único produto
-    Pegar produto por ID 7
+    Pegar produto por ID 195
 TC03 - Realizar pesquisa de produto
     Pegar produto por pesquisa car
     
